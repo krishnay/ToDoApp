@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" ng-app="ToDo">
+<html class="no-js" ng-App="ToDo">
   <head>
     <meta charset="utf-8">
     <title></title>
@@ -21,6 +21,7 @@
   <div ng-controller="todoController">
     <form name="frm" ng-submit="addTodo()">
          <input type="text" name="newtodo" ng-model="newTodo" required />
+         <input type="text" name="newassigneetodo" ng-model="newassigneetodo" required />
          <button class="btn btn-primary" ng-disabled="frm.$invalid">ADD</button>
     </form>
          <button class="btn btn-danger" ng-click="clearCompleted()">Delete</button>
@@ -29,7 +30,7 @@
   <ul>
     <li ng-repeat="todo in todos">
        <input type="checkbox" ng-model="todo.done" />
-        <span ng-class="{'done':todo.done}">{{todo.title}}</span>
+        <span ng-class="{'done':todo.done}">{{todo.title}}</span> || <span ng-class="{'done':todo.done}">{{todo.assignee}}</span>
     </li>
 
   </ul>
@@ -58,7 +59,7 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
        
-
+   <script src="scripts/app.js"></script>
         <!-- endbuild -->
 </body>
 </html>
